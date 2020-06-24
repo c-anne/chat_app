@@ -1,4 +1,4 @@
-const socket = io('http://localhost:3020')
+const socket = io('http://localhost:3030')
 const messageBox = document.getElementById('message-box')
 const messageForm = document.getElementById('send-message')
 const messageInput = document.getElementById('message-input')
@@ -22,7 +22,7 @@ socket.on('user-disconnected', name =>{
 messageForm.addEventListener('submit', e =>{
     e.preventDefault()
     const message = messageInput.value
-    appendMessage(`You: ${data.message}`)
+    appendMessage(`You: ${message}`)
     socket.emit('send-chat-message', message)
     messageInput.value = ''
 })
